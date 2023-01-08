@@ -47,6 +47,7 @@ def brew():
 
 
 if __name__ == '__main__':
+    print("Test with a dummy display")
     dm = displays.manager.DisplayManager()
     di = display_interface.DisplayInterface(dm)
 
