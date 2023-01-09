@@ -1,6 +1,6 @@
 from flask import Flask, request
 import display_interface
-import displays.manager
+import displays.ba6x_manager
 
 app = Flask(__name__)
 
@@ -24,7 +24,9 @@ def set_cursor(display_id):
 @app.route('/display/<int:display_id>/write', methods=['POST'])
 def write_message(display_id):
     try:
-        message = str(request.data)
+        # request data needs to be converted to avoid b'" display
+        # TODO: auto decode
+        message = request.data.decode('UTF-8')
 
         di.print_message(display_id, message)
         return 'wilco', 202
@@ -47,8 +49,8 @@ def brew():
 
 
 if __name__ == '__main__':
-    print("Test with a dummy display")
-    dm = displays.manager.DisplayManager()
+    print("Using Wincor Nixdorf BA66 display")
+    dm = displays.ba6x_manager.BA6XDisplayManager()
     di = display_interface.DisplayInterface(dm)
 
     app.run()
