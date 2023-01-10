@@ -13,8 +13,7 @@ def get_available_displays():
 def set_cursor(display_id):
     try:
         position = request.args.to_dict()
-        print(position)
-        # send the message to the display
+        # send coordinates to the display
         di.set_cursor_position(display_id, position)
         return 'wilco', 202
     except ValueError as e:

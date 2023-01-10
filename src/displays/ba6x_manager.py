@@ -16,8 +16,8 @@ class BA6XDisplayManager:
     def set_cursor_position(self, display_id, x, y):
         if x > self.__max_x or x < 0 or y > self.__max_y or y < 0:
             raise ValueError("Invalid cursor position")
-        print("Set cursor at position x=" + str(x) + ", y=" + str(y))
-        self.__vfds[display_id].poscur(x, y)
+        # VFD-WCN library uses indexes starting at 1
+        self.__vfds[display_id].poscur(y+1, x+1)
 
     def print_message(self, display_id, message):
         self.__vfds[display_id].write_msg(message)

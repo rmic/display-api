@@ -44,7 +44,7 @@ POST /display/0/write?x=0&y=0
 Hello, world!
 ```
 
-### POST /screens/int:display_id/clear
+### POST /display/int:display_id/clear
 Clears the specified display.
 
 #### Parameters
@@ -53,7 +53,7 @@ Clears the specified display.
 
 #### Example request:
 
-```POST /screens/0/clear```
+```POST /display/0/clear```
 
 ## Functions 
 
