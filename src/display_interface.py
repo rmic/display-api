@@ -9,7 +9,7 @@ class DisplayInterface:
         self.__nb_displays = hardware_display.get_available_displays()
 
     def get_available_displays(self):
-        return self.__nb_displays
+        return str(self.__nb_displays)
 
     def set_cursor_position(self, display_id, position):
         if display_id > self.__display.get_available_displays() - 1 or display_id < 0:
